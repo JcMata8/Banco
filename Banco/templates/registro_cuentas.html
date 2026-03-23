@@ -1,0 +1,47 @@
+{% extends 'formato.html' %}
+
+{% block section%}
+
+<div class="container mt-5">
+
+    <div class="card">
+
+        <div class="card-header bg-secondary text-white">
+        Registro de Cuenta
+        </div>
+
+        <div class="card-body">
+
+            <form method="post">
+
+            {% csrf_token %}
+
+                <div class="mb-3">
+                    <label>Cliente</label>
+                    {{ form.cliente }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Numero de Cuenta</label>
+                    {{ form.numero_cuenta }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Tipo de Cuenta</label>
+                    {{ form.tipo_cuenta }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Saldo Inicial</label>
+                    {{ form.saldo }}
+                </div>
+
+                <button class="btn btn-success">Guardar</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock section %}

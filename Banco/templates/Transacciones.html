@@ -1,0 +1,71 @@
+{% extends 'formato.html' %}
+
+{% block section%}
+
+
+
+<div class="container mt-5">
+
+    <div class="card">
+
+        <div class="card-header bg-secondary">
+        Registrar Transaccion a otra cuenta
+        </div>
+
+        <div class="card-body">
+
+            <form method="post">
+
+            {% csrf_token %}
+
+                <div class="mb-3">
+                    <label>Cuenta de origen</label>
+                    <div class= "form-control form-control-lg bg-light border-0 shadow-none rounded-3"> 
+                    {{ cuenta_origen.numero_cuenta}}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Cuenta de destino</label>
+                    <div class= "form-control form-control-lg bg-light border-0 shadow-none rounded-3">
+                    {{ form.cuenta }}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Saldo Actual</label>
+                    Q{{ saldo.saldo }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Monto</label>
+                    {{ form.monto }}
+                </div>
+
+                
+                <button class="btn btn-warning">Registrar</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    {% if messages %}
+        {% for message in messages %}
+            Swal.fire({
+                icon: 'error',
+                title: '{{message}}',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        {% endfor %}   
+
+        {% endif %}
+
+
+</script>
+
+{% endblock section %}
